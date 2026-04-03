@@ -10,7 +10,18 @@ export async function detectIntent(
   projectDocsContext = {}
 ) {
   try {
+    const browserConfidence =
+      typeof browserContext?.confidence === 'number' && Number.isFinite(browserContext.confidence)
+        ? browserContext.confidence
+        : 0;
+    const browserQuality = browserContext?.quality === 'high-signal' ? 'high-signal' : 'low-signal';
+    const intentGuidance =
+      browserQuality === 'high-signal' && browserConfidence >= 0.6
+        ? 'Treat retrieved browser evidence as strong grounding for intent.'
+        : 'Treat browser evidence as weak; infer intent conservatively and avoid overconfident API assumptions.';
+
     const prompt = `Based on the following context, what is the developer trying to accomplish? Be specific. Return a single clear sentence.
+Use this guidance: ${intentGuidance}
 
 File analysis: ${JSON.stringify(fileAnalysis)}
 Browser context: ${JSON.stringify(browserContext)}

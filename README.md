@@ -73,6 +73,16 @@ Provider routing (optional):
 - `LLM_PROVIDER=anthropic` with `ANTHROPIC_API_KEY`
 - `LLM_PROVIDER=openrouter` with `OPENROUTER_API_KEY`
 
+Browser intelligence retrieval (optional):
+
+- `BROWSER_RETRIEVAL_PROVIDER=auto|brave|keyless` (default `auto`; uses Brave when `BRAVE_API_KEY` is set, otherwise keyless)
+- `BRAVE_API_KEY=...` (required for Brave backend)
+- `BROWSER_RETRIEVAL_MAX_RESULTS=8`
+- `BROWSER_RETRIEVAL_TIMEOUT_MS=8000`
+- `BROWSER_RETRIEVAL_MIN_SCORE=0.25`
+- `BROWSER_RETRIEVAL_CACHE_TTL_MS=300000`
+- `BROWSER_RETRIEVAL_CACHE_MAX_ENTRIES=200`
+
 Project docs grounding (optional but recommended):
 
 - `PROJECT_DOCS_ENABLED=true|false`
@@ -157,6 +167,24 @@ Prompt prioritization guidance:
 - By default, fullscan still delivers all prompts (now with priority scoring metadata).
 - Set `PRIORITY_TOP_N` and/or `PRIORITY_MIN_SCORE` to reduce low-value prompt noise.
 - Check `Prompts (Fullscan)/<runId>/summary.json` for full ranked results, including skipped items.
+
+## Two-Lane Prompt Grounding
+
+Prompt generation now uses two explicit lanes:
+
+- `ReasoningContext`: code analysis, context signals, project profile/docs, recent changes.
+- `EvidenceContext`: browser intelligence retrieval (query, docs summary, topics, confidence, retrieval metadata).
+
+Grounding policy behavior:
+
+- High-signal evidence (`quality=high-signal`, confidence >= 0.6): factual API claims should be evidence-backed.
+- Low-signal evidence: use conservative reasoning and label uncertain claims as assumptions with verification steps.
+
+The generated prompt template requires:
+
+- `Evidence-backed recommendations`
+- `Assumptions needing verification`
+- `Uncertainty/conflicts`
 
 ## MCP Context Server (Phase 3)
 

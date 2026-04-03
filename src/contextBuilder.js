@@ -295,19 +295,34 @@ function normalizeBrowserContext(browserContext) {
       : new Date().toISOString();
   const lowSignal =
     /mvp:|not enabled|no docs/i.test(relevantDocs) || /no query available/i.test(query);
-  const topics = normalizeStringList(
-    `${query} ${relevantDocs}`
-      .split(/[^a-zA-Z0-9_-]+/)
-      .map((item) => item.toLowerCase())
-      .filter((item) => item.length >= 4),
-    10
-  );
+  const providedTopics = Array.isArray(browserContext?.topics)
+    ? browserContext.topics.filter((item) => typeof item === 'string')
+    : [];
+  const topicsSource =
+    providedTopics.length > 0
+      ? providedTopics.join(' ')
+      : `${query} ${relevantDocs}`
+          .split(/[^a-zA-Z0-9_-]+/)
+          .map((item) => item.toLowerCase())
+          .filter((item) => item.length >= 4)
+          .join(' ');
+  const topics = normalizeStringList(topicsSource, 10);
+  const providedConfidence =
+    typeof browserContext?.confidence === 'number' && Number.isFinite(browserContext.confidence)
+      ? clampNumber(browserContext.confidence, 0, 1, lowSignal ? 0.25 : 0.85)
+      : null;
+  const confidence = providedConfidence ?? (lowSignal ? 0.25 : 0.85);
+  const providedQuality =
+    browserContext?.quality === 'high-signal' || browserContext?.quality === 'low-signal'
+      ? browserContext.quality
+      : null;
+  const quality = providedQuality ?? (confidence < 0.5 ? 'low-signal' : 'high-signal');
   return {
     query,
     relevantDocs,
     timestamp,
-    confidence: lowSignal ? 0.25 : 0.85,
-    quality: lowSignal ? 'low-signal' : 'high-signal',
+    confidence,
+    quality,
     topics,
   };
 }
