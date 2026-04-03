@@ -1,0 +1,240 @@
+---
+description: "Auto-generated project context"
+alwaysApply: true
+---
+
+File: webhook.test.js
+Path: C:\Users\raidi\Desktop\ai-dev-agent\test\webhook.test.js
+Purpose: To test the webhook server's response to different types of requests and configurations.
+Summary: This test file evaluates various endpoints and scenarios for a webhook server, including authorization, handle requests with different content types, and managing request idempotency. It uses Node's built-in test and assert libraries to ensure the server's responses meet expected statuses under various configurations.
+Dependencies: {
+  "contextBuilder.js": [
+    "fs",
+    "path",
+    "getBrowserContext",
+    "ANALYSIS_VERSION",
+    "analyzeFile",
+    "buildDependencyMap",
+    "browserIntelligence.js",
+    "fileIntelligence.js"
+  ],
+  "orchestratorAdapter.js": [
+    "path",
+    "crypto",
+    "buildContext",
+    "detectIntent",
+    "generatePrompt",
+    "deliverPrompt",
+    "writeCursorRules",
+    "notifyPromptReady",
+    "scorePromptPriority",
+    "shouldDeliverByPriority",
+    "loadProjectDocsContext",
+    "contextBuilder.js",
+    "intentDetector.js",
+    "promptGenerator.js",
+    "cursorDelivery.js",
+    "index.js",
+    "promptPriority.js",
+    "projectDocsLoader.js"
+  ],
+  "promptGenerator.js": [
+    "dotenv/config",
+    "detectIntent",
+    "getCompletion",
+    "intentDetector.js",
+    "client.js"
+  ],
+  "watcher.js": [
+    "fs",
+    "chokidar",
+    "path",
+    "crypto",
+    "ALLOWED_EXT",
+    "runPipeline",
+    "discoverProjectFiles",
+    "scorePathPriority",
+    "generateMasterPrompts",
+    "writeMasterPrompts",
+    "contextBuilder.js",
+    "orchestratorAdapter.js",
+    "fileDiscovery.js",
+    "promptPriority.js",
+    "masterPromptGenerator.js",
+    "cursorDelivery.js"
+  ],
+  "webhookServer.js": [
+    "dotenv/config",
+    "node:http",
+    "node:crypto",
+    "node:url",
+    "./orchestratorAdapter.js",
+    "orchestratorAdapter.js"
+  ],
+  "contextServer.js": [
+    "fs",
+    "path",
+    "dotenv/config",
+    "Server",
+    "StdioServerTransport",
+    "CallToolRequestSchema",
+    "ListToolsRequestSchema",
+    "pathToFileURL"
+  ],
+  "browserIntelligence.js": [
+    "dotenv/config",
+    "getCompletion",
+    "client.js"
+  ],
+  "cache.js": [
+    "fs",
+    "path"
+  ],
+  "cursorDelivery.js": [
+    "fs",
+    "path",
+    "clipboard"
+  ],
+  "fileDiscovery.js": [
+    "fs",
+    "path"
+  ],
+  "fileIntelligence.js": [
+    "dotenv/config",
+    "node:crypto",
+    "node:path",
+    "./cache.js",
+    "./llm/client.js",
+    "cache.js",
+    "client.js"
+  ],
+  "intentDetector.js": [
+    "dotenv/config",
+    "getCompletion",
+    "client.js"
+  ],
+  "client.js": [
+    "dotenv/config",
+    "openai",
+    "../utils/retry.js",
+    "retry.js"
+  ],
+  "masterPromptGenerator.js": [
+    "getCompletion",
+    "client.js"
+  ],
+  "index.js": [
+    "sendWebhookNotification",
+    "webhookNotifier.js"
+  ],
+  "webhookNotifier.js": [
+    "isTransientHttpError",
+    "withRetry"
+  ],
+  "projectDocsLoader.js": [
+    "fs",
+    "path"
+  ],
+  "promptPriority.js": [
+    "path"
+  ],
+  "runPipeline.js": [
+    "runPipeline",
+    "orchestratorAdapter.js"
+  ],
+  "retry.js": [],
+  "cache.test.js": [
+    "test",
+    "assert",
+    "fs",
+    "os",
+    "path",
+    "pathToFileURL"
+  ],
+  "contextBuilder.test.js": [
+    "node:test",
+    "node:assert/strict",
+    "node:fs",
+    "node:os",
+    "node:path",
+    "../src/contextBuilder.js",
+    "contextBuilder.js"
+  ],
+  "fileDiscovery.test.js": [
+    "test",
+    "assert",
+    "fs",
+    "os",
+    "path",
+    "discoverProjectFiles"
+  ],
+  "fileIntelligence.test.js": [
+    "node:test",
+    "node:assert/strict",
+    "node:path",
+    "../src/fileIntelligence.js",
+    "fileIntelligence.js"
+  ],
+  "masterPromptGenerator.test.js": [
+    "test",
+    "assert",
+    "generateMasterPrompts",
+    "resolveMasterPromptCount"
+  ],
+  "mcp.test.js": [
+    "test",
+    "assert",
+    "assertAuthorized",
+    "buildContextOverview",
+    "buildContextQuality",
+    "buildFullscanRun",
+    "buildLatestFullscan",
+    "buildMasterPrompts",
+    "buildPromptHistory",
+    "buildPromptStatus",
+    "buildProjectProfile",
+    "buildRecentChanges",
+    "buildBrowserResearch",
+    "buildCurrentTask",
+    "buildProjectContext",
+    "buildWatcherState"
+  ],
+  "orchestrator.test.js": [
+    "test",
+    "assert",
+    "runPipeline",
+    "orchestratorAdapter.js"
+  ],
+  "projectDocsLoader.test.js": [
+    "node:test",
+    "node:assert/strict",
+    "node:fs",
+    "node:os",
+    "node:path",
+    "../src/projectDocsLoader.js",
+    "projectDocsLoader.js"
+  ],
+  "promptPriority.test.js": [
+    "test",
+    "assert",
+    "scorePathPriority",
+    "scorePromptPriority",
+    "shouldDeliverByPriority",
+    "promptPriority.js"
+  ],
+  "rules.test.js": [
+    "node:test",
+    "node:assert/strict",
+    "node:fs",
+    "node:path",
+    "../src/cursorDelivery.js",
+    "cursorDelivery.js"
+  ],
+  "webhook.test.js": [
+    "test",
+    "assert",
+    "pathToFileURL",
+    "path",
+    "crypto"
+  ]
+}

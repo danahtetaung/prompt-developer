@@ -1,0 +1,12 @@
+---
+description: "Coding conventions for source edits"
+globs: ['src/**/*.{js,ts,jsx,tsx}']
+alwaysApply: false
+---
+
+Preferred conventions:
+- Use ES modules and named exports where practical.
+- Preserve existing architecture and dependency boundaries.
+- Keep functions small and explicit with clear error handling.
+- Avoid broad refactors unless directly required by the task.
+- Follow existing formatting and naming patterns in the touched file.

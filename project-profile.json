@@ -1,0 +1,39 @@
+{
+  "projectName": "My Project",
+  "projectSummary": "Short description of what this product does.",
+  "scopeMode": "everything",
+  "scopeOptions": [
+    "personal",
+    "b2b_saas",
+    "everything"
+  ],
+  "targetUsers": [
+    "individual users",
+    "teams",
+    "enterprise admins"
+  ],
+  "coreUseCases": [
+    "Describe the most important workflow #1",
+    "Describe the most important workflow #2"
+  ],
+  "outOfScope": [
+    "What this project should NOT do"
+  ],
+  "businessContext": {
+    "pricingModel": "unknown",
+    "goToMarket": "unknown",
+    "compliance": [
+      "none"
+    ]
+  },
+  "technicalContext": {
+    "primaryStack": "Node.js",
+    "deploymentTarget": "unknown",
+    "integrations": []
+  },
+  "deliveryPreferences": {
+    "riskTolerance": "balanced",
+    "changeStyle": "incremental",
+    "notes": "Set riskTolerance to 'aggressive' if you want larger feature proposals."
+  }
+}

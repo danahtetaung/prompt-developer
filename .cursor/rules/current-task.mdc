@@ -1,0 +1,7 @@
+---
+description: "Auto-generated current task intent"
+alwaysApply: true
+---
+
+Detected intent:
+The developer is attempting to ensure that the webhook server handles different types of requests and configurations properly by employing Node.js built-in testing libraries to verify the server's responses meet the expected statuses.

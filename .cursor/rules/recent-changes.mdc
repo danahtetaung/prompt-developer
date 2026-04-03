@@ -1,0 +1,12 @@
+---
+description: "Recent code change timeline"
+globs: ['src/**/*.{js,ts,jsx,tsx}']
+alwaysApply: false
+---
+
+Recent changes (last 5):
+1. 2026-04-02T21:26:14.453Z - orchestrator.test.js (C:\Users\raidi\Desktop\ai-dev-agent\test\orchestrator.test.js)
+2. 2026-04-02T21:26:30.565Z - projectDocsLoader.test.js (C:\Users\raidi\Desktop\ai-dev-agent\test\projectDocsLoader.test.js)
+3. 2026-04-02T21:26:48.851Z - promptPriority.test.js (C:\Users\raidi\Desktop\ai-dev-agent\test\promptPriority.test.js)
+4. 2026-04-02T21:27:05.295Z - rules.test.js (C:\Users\raidi\Desktop\ai-dev-agent\test\rules.test.js)
+5. 2026-04-02T21:27:19.379Z - webhook.test.js (C:\Users\raidi\Desktop\ai-dev-agent\test\webhook.test.js)
